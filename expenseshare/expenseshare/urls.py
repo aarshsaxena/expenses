@@ -20,6 +20,7 @@ from expenses import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.home, name='home'),  # Home URL
     path('users/create/', views.UserCreateView.as_view(), name='user-create'),
     path('users/<int:pk>/', views.UserDetailView.as_view(), name='user-detail'),
     path('expenses/create/', views.ExpenseCreateView.as_view(), name='expense-create'),

@@ -3,8 +3,14 @@ from rest_framework import generics
 from rest_framework.response import Response
 from .models import User, Expense
 from .serializers import UserSerializer, ExpenseSerializer
+from django.http import HttpResponse
 
 # Create your views here.
+
+
+def home(request):
+    return HttpResponse("<h1>Welcome to the Daily Expenses Sharing Application!</h1>")
+
 
 class UserCreateView(generics.CreateAPIView):
     queryset = User.objects.all()
