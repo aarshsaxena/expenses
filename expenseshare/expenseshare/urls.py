@@ -16,7 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from expenses import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('users/create/', views.UserCreateView.as_view(), name='user-create'),
+    path('users/<int:pk>/', views.UserDetailView.as_view(), name='user-detail'),
+    path('expenses/create/', views.ExpenseCreateView.as_view(), name='expense-create'),
+    path('expenses/<int:pk>/', views.ExpenseDetailView.as_view(), name='expense-detail'),
+    path('expenses/', views.ExpenseListView.as_view(), name='expense-list'),
+    path('balancesheet/download/', views.DownloadBalanceSheetView.as_view(), name='download-balance-sheet'),
 ]
